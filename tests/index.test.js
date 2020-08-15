@@ -1,12 +1,12 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const app = require('../index');
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import app from '../index';
 
 chai.use(chaiHttp);
 chai.should();
 
 describe('Application', () => {
-  it('it should return error if no route found', (done) => {
+  it('it should return welcome to KIGC | BLOG', (done) => {
     chai
       .request(app)
       .get('/')
@@ -14,10 +14,10 @@ describe('Application', () => {
         if (err) {
           done(err);
         }
-        res.should.have.status(404);
+        res.should.have.status(200);
         res.body.should.be.a('object');
-        res.body.should.have.property('status').eql('error');
-        res.body.should.have.property('msg').eql('Undefined route');
+        res.body.should.have.property('status').eql('ok');
+        res.body.should.have.property('msg').eql('Welcome to KIGC | BLOG');
         done();
       });
   });

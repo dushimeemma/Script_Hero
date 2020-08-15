@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 module.exports = {
   development: {
     mongoURI: process.env.DEV_DB_URI,
