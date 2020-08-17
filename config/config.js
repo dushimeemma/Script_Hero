@@ -3,6 +3,7 @@ dotenv.config();
 module.exports = {
   development: {
     mongoURI: process.env.DEV_DB_URI,
+    jwtSecret: process.env.JWTSECRET,
   },
   test: {
     mongoURI: process.env.TEST_DB_URI,

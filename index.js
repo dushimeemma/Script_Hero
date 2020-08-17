@@ -1,8 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
 import config from './config/config';
+import userRoutes from './routes/users';
+import authRoutes from './routes/auth';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,11 +18,14 @@ const connectDB = async () => {
   console.log('MongoDB connected successfully');
   return con;
 };
+//db connection
 connectDB();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).send({
