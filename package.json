@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon  --require babel-register index.js",
-    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 10000 --require babel-register tests/* --exit",
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 15000 --require babel-register tests/* --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

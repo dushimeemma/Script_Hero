@@ -2,8 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import config from './config/config';
-import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
+import queryRoutes from './routes/queries';
+import queryArticles from './routes/articles';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,8 +25,9 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/queries', queryRoutes);
+app.use('/api/articles', queryArticles);
 
 app.get('/', (req, res) => {
   res.status(200).send({

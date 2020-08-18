@@ -7,7 +7,8 @@ import auth from '../middlewares/auth';
 const router = express.Router();
 const user = new Auth();
 
-router.post('/', loginValidator, asyncHandler(user.authUser));
+router.post('/signup', loginValidator, asyncHandler(user.createUser));
+router.post('/login', loginValidator, asyncHandler(user.authUser));
 router.get('/user', auth, asyncHandler(user.getUser));
 
 export default router;
