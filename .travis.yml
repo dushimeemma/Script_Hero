@@ -4,6 +4,11 @@ node_js:
 cache:
   directories:
     - node_modules
+services:
+  - mongodb
+before_script:
+  - sleep 15
+  - mongo kigc-blog-atlp --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 script:
   - npm install
   - npm test
