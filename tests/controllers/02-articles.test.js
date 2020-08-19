@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 describe('Article', () => {
   let newUser = {
     email: 'test@test.com',
-    password: 'Uwaseraissa08',
+    password: 'Password@1994',
   };
   let jwt;
   before(async () => {

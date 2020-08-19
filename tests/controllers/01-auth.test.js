@@ -16,8 +16,8 @@ describe('User', () => {
   describe('/POST user', () => {
     it('should not create user with existing email', (done) => {
       let user = new User({
-        name: 'Dushime Emmanuel',
-        email: 'test@gmail.com',
+        name: 'Test Test',
+        email: 'test@test.com',
         password: 'Password@1994',
       });
       user.save((err, user) => {
@@ -28,8 +28,8 @@ describe('User', () => {
             .request(app)
             .post('/api/auth/signup')
             .send({
-              name: 'Dushime Emmanuel',
-              email: 'dushimeemma@gmail.com',
+              name: 'Test Test',
+              email: 'test@test.com',
               password: 'Password@1994',
             })
             .end((err, res) => {
@@ -45,10 +45,11 @@ describe('User', () => {
   });
 
   describe('/POST /api/auth/signup', () => {
-    it('should not create a new user without name', (done) => {
+    it('should not create a new user without password', (done) => {
       let newUser = new User({
-        email: 'test@test.com',
-        password: 'Uwaseraissa08',
+        name: 'Test Test',
+        email: 'newtest@test.com',
+        //   password: 'Password@1994',
       });
       chai
         .request(app)
@@ -69,7 +70,7 @@ describe('User', () => {
       let newUser = new User({
         name: 'Test Test',
         email: 'test@test.com',
-        password: 'Uwaseraissa08',
+        password: 'Password@1994',
       });
       chai
         .request(app)
@@ -89,7 +90,7 @@ describe('User', () => {
       chai
         .request(app)
         .post('/api/auth/login')
-        .send({ email: 'test@test.com', password: 'Uwaseraissa08' })
+        .send({ email: 'test@test.com', password: 'Password@1994' })
         .end((err, res) => {
           if (err) {
             done(err);
@@ -99,7 +100,7 @@ describe('User', () => {
         });
     });
   });
-   describe('POST /api/auth/login', () => {
+  describe('POST /api/auth/login', () => {
     it('should not login without password', (done) => {
       chai
         .request(app)

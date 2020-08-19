@@ -10,7 +10,7 @@ let should = chai.should();
 describe('Query', () => {
   let newUser = {
     email: 'test@test.com',
-    password: 'Uwaseraissa08',
+    password: 'Password@1994',
   };
   let jwt;
   before(async () => {

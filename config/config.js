@@ -7,8 +7,10 @@ module.exports = {
   },
   test: {
     mongoURI: process.env.TEST_DB_URI,
+    jwtSecret: process.env.JWTSECRET,
   },
   production: {
     mongoURI: process.env.PROD_DB_URI,
+    jwtSecret: process.env.JWTSECRET,
   },
 };
