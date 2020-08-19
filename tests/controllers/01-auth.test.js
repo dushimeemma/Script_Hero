@@ -85,7 +85,7 @@ describe('User', () => {
         });
     });
   });
-  /*  describe('/POST login', () => {
+  /* describe('/POST login', () => {
     it('should login', (done) => {
       chai
         .request(app)
