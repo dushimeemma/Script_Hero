@@ -4,7 +4,7 @@
   "description": "Create personal platform RESTful API Endpoints with nodejs and expressjs",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development node index.js",
+    "start": "NODE_ENV=development node --require babel-register  index.js",
     "server": "NODE_ENV=development nodemon  --require babel-register index.js",
     "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 15000 --require babel-register tests/* --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
