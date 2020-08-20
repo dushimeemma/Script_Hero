@@ -4,10 +4,11 @@
   "description": "Create personal platform RESTful API Endpoints with nodejs and expressjs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "NODE_ENV=development node index.js",
     "server": "NODE_ENV=development nodemon  --require babel-register index.js",
     "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 15000 --require babel-register tests/* --exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "heroku-postbuild": "NODE_ENV=production NPM_CONFIG_PRODUCTION=false"
   },
   "repository": {
     "type": "git",
