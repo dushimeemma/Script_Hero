@@ -8,7 +8,7 @@ services:
   - mongodb
 before_script:
   - sleep 15
-  - mongo kigc-blog-atlp --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+  - mongo kigc-blog-test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 script:
   - npm install
   - npm test
